@@ -1,30 +1,57 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="http://stemwijzer.dvc-icta.nl/data.js"></script>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" type="text/css" href="style.css">
+  <head>
+    <script src="http://stemwijzer.dvc-icta.nl/testdata.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
-		<title>StemWijzer Tweede Kamer</title>
-	</head>
-	<body id="vm-6948" data-current-section="statements">
-	<br>
-	<div class="statements js-statements-stage" data-screen-id="2">
-		<img src="https://tweedekamer2017.stemwijzer.nl/public/gfx/logo-stemwijzer.svg" id="stemwijzerimg" href="" class="">
-		<div class="application__navigation">
-			<button onclick="backQuestion()" class=""><img src="https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-arrow-back.svg"></button>
-		</div>
-		<h1 id="title" class="title"></h1>
-		<h2 id="statement" class="statement"></h2><br>
-		<button id="pro" onclick="questionAnswers('pro')"class="btn-answer">eens</button>
-		<button id="none" onclick="questionAnswers('none')"class="btn-answer">geen van beiden</button>
-		<button id="contra" onclick="questionAnswers('contra')"class="btn-answer">oneens</button><br>
-		<button id="skip" onclick="questionAnswers('skip')" class="btn-answer">Sla deze vraag over</button>
-	</div>
-	<script src="stemwijzerjs.js"></script>
-	</body>
-	<br>
-	<footer>
-		<img src="https://tweedekamer2017.stemwijzer.nl/public/gfx/logo-stemwijzer-white.png" id="stemwijzerimg" href="" class="footer">
-	</footer>
+    <title>StemWijzer Tweede Kamer</title>
+  </head>
+  <body id="vm-6948" data-current-section="statements">
+    <br />
+    <div class="statements js-statements-stage" data-screen-id="2">
+      <img
+        src="https://tweedekamer2017.stemwijzer.nl/public/gfx/logo-stemwijzer.svg"
+        id="stemwijzerimg"
+        href=""
+        class=""
+      />
+      <div class="application__navigation">
+        <button onclick="backQuestion()" class="btn btn--navigation btn--back">
+          <img
+            src="https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-arrow-back.svg"
+          />
+        </button>
+      </div>
+      <h1 id="title" class="title"></h1>
+      <h2 id="statement" class="statement"></h2>
+      <br />
+      <button id="pro" onclick="questionAnswers('pro')" class="btn-answer">
+        eens
+      </button>
+      <button id="none" onclick="questionAnswers('none')" class="btn-answer">
+        geen van beiden
+      </button>
+      <button
+        id="contra"
+        onclick="questionAnswers('contra')"
+        class="btn-answer"
+      >
+        oneens</button
+      ><br />
+      <button id="skip" onclick="questionAnswers('skip')" class="btn-answer">
+        Sla deze vraag over
+      </button>
+    </div>
+    <script src="stemwijzerjs.js"></script>
+  </body>
+  <br />
+  <footer>
+    <img
+      src="https://tweedekamer2017.stemwijzer.nl/public/gfx/logo-stemwijzer-white.png"
+      id="stemwijzerimg"
+      href=""
+      class="footer"
+    />
+  </footer>
 </html>

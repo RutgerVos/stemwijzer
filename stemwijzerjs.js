@@ -1,68 +1,86 @@
-var button1 = document.getElementById('pro');
-var button2 = document.getElementById('none');
-var button3 = document.getElementById('contra');
-var button4 = document.getElementById('skips');
-const head = document.getElementById('title');
-const statement = document.getElementById('statement');
-var sub = subjects[0]['title'];
-var partie = subjects[0]['parties'][0]['name'];
-var position = subjects[0]['parties'][0]['position'];
+var button1 = document.getElementById("pro");
+var button2 = document.getElementById("none");
+var button3 = document.getElementById("contra");
+var button4 = document.getElementById("skips");
+var head = document.getElementById("title");
+var statement = document.getElementById("statement");
+var sub = subjects[0]["title"];
+var partie = subjects[0]["parties"][0]["name"];
+//var position = subjects[0]["parties"][0]["position"];
 var qstNum = 0;
 var answers = [];
+var allpartys = [];
 var results = [];
 
-for (var i = 0; i < parties.length; i++) 
-{
-	results[i] = {'name': parties[i].name, 'points': 0}
-
+for (var i = 0; i < parties.length; i++) {
+  allpartys[i] = { name: parties[i].name, points: 0 };
 }
 
-console.log(results);
+console.log(allpartys);
 //questionAnswer stores the answer entered and starts the next question
-function questionAnswers(answer)
-{
-	answers[qstNum] = answer;
-	console.log(answers);
-	nextQuestion("up");
-
+function questionAnswers(answer) {
+  answers[qstNum] = answer;
+  console.log(answers);
+  nextQuestion("up");
 }
 //checks how many numbers of question there and if there no more questions
-function nextQuestion(upOrDown) 
-{
-	if (answers.length == 30) {return;}
-	if(subjects.length-1 != qstNum){
-		if (upOrDown != "up"){
-			qstNum--;
-		} else {
-      		qstNum++;
-		}
-		question();
-	} else {
-		document.getElementById('pro').classList.add('hidden');
-		console.log('end question list');
-	}
+function nextQuestion(upOrDown) {
+  if (subjects.length - 1 != qstNum) {
+    if (upOrDown != "up") {
+      qstNum--;
+    } else {
+      qstNum++;
+    }
+    question();
+  } else {
+    checkAnswers();
+  }
 }
-function question()
-{
-	head.innerHTML = (answers.length + 1) + ". " + subjects[qstNum]['title'];
-	statement.innerHTML = subjects[qstNum]['statement'];
+function question() {
+  head.innerHTML = answers.length + 1 + ". " + subjects[qstNum]["title"];
+  statement.innerHTML = subjects[qstNum]["statement"];
 }
 //nextQuestion("up");
 
 // een manier op terug te gegaan naar een vraag
-function backQuestion()
-	{
-	qstNum--;
-	answers.length--;
-	//console.log(answers.length);
-	question();
-	console.log('backQuestion'+qstNum);
-	}
+function backQuestion() {
+  if (qstNum == 0) {
+    return;
+  } else {
+    qstNum--;
+    answers.length--;
+    console.log(answers.length);
+    question();
+    console.log("backQuestion" + answers.length);
+  }
+}
 // een
-function checkAnswers()
-	{
+function checkAnswers() {
+  console.log("check begin");
+  for (var answerCounter = 0; answerCounter < answers.length; answerCounter++) {
+    var partiesLength = subjects[answerCounter].parties.length;
+    for (var p = 0; p < partiesLength; p++) {
+      subjects[answerCounter].parties;
+      console.log(answers);
 
+      if (
+        answers[answerCounter] == subjects[answerCounter].parties[p].position
+      ) {
+        console.log("true");
+      } else {
+        console.log("false");
+      }
+    }
+  }
+}
 
-
-	}
+function buttonreplace() {
+  document.getElementById("pro").classList.add("hidden");
+  document.getElementById("none").classList.add("hidden");
+  document.getElementById("contra").classList.add("hidden");
+}
 question();
+//if (answer.length === qstNum.length) {
+// console.log("end question list");
+// return;
+//}
