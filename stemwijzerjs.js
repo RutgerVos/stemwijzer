@@ -15,6 +15,16 @@ var results = [];
 for (var i = 0; i < parties.length; i++) {
   allpartys[i] = { name: parties[i].name, points: 0 };
 }
+Object.defineProperty(allpartys, "add", {
+  set: function(value) {
+    this.points += value;
+  }
+});
+Object.defineProperty(allpartys, "increment", {
+  get: function() {
+    this.points++;
+  }
+});
 
 console.log(allpartys);
 //questionAnswer stores the answer entered and starts the next question
@@ -66,7 +76,9 @@ function checkAnswers() {
       if (
         answers[answerCounter] == subjects[answerCounter].parties[p].position
       ) {
+        allpartys.add = 1;
         console.log("true");
+        console.log(allpartys);
       } else {
         console.log("false");
       }
