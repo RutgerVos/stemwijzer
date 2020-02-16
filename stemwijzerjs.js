@@ -2,6 +2,7 @@ var button1 = document.getElementById("pro");
 var button2 = document.getElementById("none");
 var button3 = document.getElementById("contra");
 var button4 = document.getElementById("skips");
+var back = document.getElementById("back");
 var head = document.getElementById("title");
 var statement = document.getElementById("statement");
 var sub = subjects[0]["title"];
@@ -84,9 +85,16 @@ function checkAnswers() {
       }
     }
   }
+  buttonreplace();
 }
 
 function buttonreplace() {
+  head.innerHTML = "politieken partien die het beste passen bij you";
+  statement.innerHTML =
+    "Begint met het beste partie die bij je past en eindigt met slechtste partie die you past";
+
+  //button4.innerHTML = "opnieuw proberen";
+  document.getElementById("back").classList.add("hidden");
   document.getElementById("pro").classList.add("hidden");
   document.getElementById("none").classList.add("hidden");
   document.getElementById("contra").classList.add("hidden");
