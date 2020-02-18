@@ -1,7 +1,7 @@
 var button1 = document.getElementById("pro");
 var button2 = document.getElementById("none");
 var button3 = document.getElementById("contra");
-var button4 = document.getElementById("skips");
+var button4 = document.getElementById("skip");
 var back = document.getElementById("back");
 var head = document.getElementById("title");
 var statement = document.getElementById("statement");
@@ -78,6 +78,7 @@ function checkAnswers() {
         answers[answerCounter] == subjects[answerCounter].parties[p].position
       ) {
         allpartys.add = 1;
+
         console.log("true");
         console.log(allpartys);
       } else {
@@ -93,14 +94,15 @@ function buttonreplace() {
   statement.innerHTML =
     "Begint met het beste partie die bij je past en eindigt met slechtste partie die you past";
 
-  //button4.innerHTML = "opnieuw proberen";
   document.getElementById("back").classList.add("hidden");
   document.getElementById("pro").classList.add("hidden");
   document.getElementById("none").classList.add("hidden");
   document.getElementById("contra").classList.add("hidden");
+  button4.innerHTML = "test opnieuw";
+  button4.setAttribute("onclick", "restartTest()");
+}
+//voor als je de test opnieuwe wilt doen
+function restartTest() {
+  window.location.href = "start.html";
 }
 question();
-//if (answer.length === qstNum.length) {
-// console.log("end question list");
-// return;
-//}
