@@ -60,7 +60,7 @@ function backQuestion() {
   } else {
     qstNum--;
     answers.length--;
-    console.log(answers.length);
+    //console.log(answers.length);
     question();
     console.log("backQuestion" + answers.length);
   }
@@ -77,7 +77,7 @@ function checkAnswers() {
       if (
         answers[answerCounter] == subjects[answerCounter].parties[p].position
       ) {
-        allpartys.add = 1;
+        allpartys[answerCounter].points++;
 
         console.log("true");
         console.log(allpartys);
@@ -87,6 +87,8 @@ function checkAnswers() {
     }
   }
   buttonreplace();
+  Sorting();
+  bestToWorst();
 }
 
 function buttonreplace() {
@@ -101,8 +103,17 @@ function buttonreplace() {
   button4.innerHTML = "test opnieuw";
   button4.setAttribute("onclick", "restartTest()");
 }
-//voor als je de test opnieuwe wilt doen
 function restartTest() {
   window.location.href = "start.html";
+}
+function Sorting() {
+  allpartys.sort(function(a, b) {
+    return a.points - b.points;
+  });
+}
+function bestToWorst() {
+  for (let best = 0; best < allpartys.length; best++) {
+    document.getElementById("demo").innerHTML = allpartys[best].name;
+  }
 }
 question();
