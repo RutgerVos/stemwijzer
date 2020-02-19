@@ -12,6 +12,7 @@ var qstNum = 0;
 var answers = [];
 var allpartys = [];
 var results = [];
+const partyssize = [];
 
 for (var i = 0; i < parties.length; i++) {
   allpartys[i] = { name: parties[i].name, points: 0 };
