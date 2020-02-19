@@ -108,12 +108,16 @@ function restartTest() {
 }
 function Sorting() {
   allpartys.sort(function(a, b) {
-    return a.points - b.points;
+    return b.points - a.points;
   });
 }
 function bestToWorst() {
   for (let best = 0; best < allpartys.length; best++) {
-    document.getElementById("demo").innerHTML = allpartys[best].name;
+    var node = document.createElement("LI");
+    var textnode = document.createTextNode(allpartys[best].name);
+    node.appendChild(textnode);
+    document.getElementById("myList").appendChild(node);
+    //allpartys[best].name;
   }
 }
 question();
