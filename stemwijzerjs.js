@@ -15,7 +15,12 @@ var results = [];
 const partyssize = [];
 
 for (var i = 0; i < parties.length; i++) {
-  allpartys[i] = { name: parties[i].name, points: 0 };
+  allpartys[i] = {
+    name: parties[i].name,
+    secular: parties[i].secular,
+    size: parties[i].size,
+    points: 0
+  };
 }
 Object.defineProperty(allpartys, "add", {
   set: function(value) {
@@ -101,6 +106,7 @@ function buttonreplace() {
   document.getElementById("pro").classList.add("hidden");
   document.getElementById("none").classList.add("hidden");
   document.getElementById("contra").classList.add("hidden");
+  document.getElementById("MyCheck").classList.add("hidden");
   button4.innerHTML = "test opnieuw";
   button4.setAttribute("onclick", "restartTest()");
 }
@@ -115,10 +121,24 @@ function Sorting() {
 function bestToWorst() {
   for (let best = 0; best < allpartys.length; best++) {
     var node = document.createElement("LI");
-    var textnode = document.createTextNode(allpartys[best].name);
+    var textnode = document.createTextNode(
+      allpartys[best].name + " " + "secular:" + allpartys[best].secular
+    );
     node.appendChild(textnode);
     document.getElementById("myList").appendChild(node);
     //allpartys[best].name;
   }
 }
+function PartySize() {
+  var checkBox = document.getElementById("myCheck");
+  if (checkBox.checked == true) {
+    for (let partySize = 0; partySize < allpartys.length; partySize++) {
+      var size = allpartys[partySize].size;
+      if (size < 15) {
+        delete allpartys[partySize];
+      }
+    }
+  }
+}
+
 question();
