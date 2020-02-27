@@ -106,7 +106,7 @@ function buttonreplace() {
   document.getElementById("pro").classList.add("hidden");
   document.getElementById("none").classList.add("hidden");
   document.getElementById("contra").classList.add("hidden");
-  document.getElementById("MyCheck").classList.add("hidden");
+  //document.getElementById("MyCheck").classList.add("hidden");
   button4.innerHTML = "test opnieuw";
   button4.setAttribute("onclick", "restartTest()");
 }
@@ -136,6 +136,21 @@ function PartySize() {
       var size = allpartys[partySize].size;
       if (size < 15) {
         delete allpartys[partySize];
+      }
+    }
+  }
+}
+function PartySeculiere() {
+  var checkBox = document.getElementById("PartySeculiere");
+  if (checkBox.checked == true) {
+    for (
+      let PartySeculiere = 0;
+      PartySeculiere < allpartys.length;
+      PartySeculiere++
+    ) {
+      var secular = allpartys[PartySeculiere].secular;
+      if (secular < false) {
+        delete allpartys[PartySeculiere];
       }
     }
   }
