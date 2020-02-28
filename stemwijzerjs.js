@@ -122,7 +122,13 @@ function bestToWorst() {
   for (let best = 0; best < allpartys.length; best++) {
     var node = document.createElement("LI");
     var textnode = document.createTextNode(
-      allpartys[best].name + " " + "secular:" + allpartys[best].secular
+      allpartys[best].name +
+        " " +
+        "size:" +
+        allpartys[best].size +
+        " " +
+        "secular:" +
+        allpartys[best].secular
     );
     node.appendChild(textnode);
     document.getElementById("myList").appendChild(node);
@@ -149,8 +155,11 @@ function PartySeculiere() {
       PartySeculiere++
     ) {
       var secular = allpartys[PartySeculiere].secular;
+      var list = document.getElementById("myList");
+      var listbegin = list.getElementsByTagName("LI");
       if (secular < false) {
-        delete allpartys[PartySeculiere];
+        //delete allpartys[PartySeculiere];
+        listbegin[secular].classList.add("hidden");
       }
     }
   }
