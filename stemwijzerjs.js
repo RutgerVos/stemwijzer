@@ -100,7 +100,7 @@ function checkAnswers() {
 function buttonreplace() {
   head.innerHTML = "politieken partien die het beste passen bij you";
   statement.innerHTML =
-    "Begint met het beste partie die bij je past en eindigt met slechtste partie die you past";
+    "Begint met het beste partie die bij je past en eindigt met slechtste partie die bij you past";
 
   document.getElementById("back").classList.add("hidden");
   document.getElementById("pro").classList.add("hidden");
@@ -160,6 +160,19 @@ function PartySeculiere() {
       if (secular < false) {
         //delete allpartys[PartySeculiere];
         listbegin[secular].classList.add("hidden");
+        //listbegin[secular].style.visibility = "hidden";
+      }
+    }
+  }
+  if (checkBox.checked == false) {
+    for (
+      let PartySeculiere = 0;
+      PartySeculiere < allpartys.length;
+      PartySeculiere++
+    ) {
+      if (secular < true) {
+        //delete allpartys[PartySeculiere];
+        //listbegin[secular].classList.remove("hidden");
       }
     }
   }
