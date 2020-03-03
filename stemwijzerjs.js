@@ -158,7 +158,7 @@ function PartySeculiere() {
       var list = document.getElementById("myList");
       var listbegin = list.getElementsByTagName("LI");
       if (secular < false) {
-        //delete allpartys[PartySeculiere];
+        delete allpartys[PartySeculiere];
         listbegin[secular].classList.add("hidden");
         //listbegin[secular].style.visibility = "hidden";
       }
@@ -171,10 +171,16 @@ function PartySeculiere() {
       PartySeculiere++
     ) {
       if (secular < true) {
-        //delete allpartys[PartySeculiere];
+        delete allpartys[PartySeculiere];
         //listbegin[secular].classList.remove("hidden");
       }
     }
+  }
+}
+function questionWeight() {
+  var checkBox = document.getElementById("questionW");
+  if (checkBox.checked == true) {
+    allpartys[answerCounter].points++;
   }
 }
 
