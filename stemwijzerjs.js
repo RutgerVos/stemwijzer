@@ -22,16 +22,6 @@ for (var i = 0; i < parties.length; i++) {
     points: 0
   };
 }
-Object.defineProperty(allpartys, "add", {
-  set: function(value) {
-    this.points += value;
-  }
-});
-Object.defineProperty(allpartys, "increment", {
-  get: function() {
-    this.points++;
-  }
-});
 
 console.log(allpartys);
 //questionAnswer stores the answer entered and starts the next question
@@ -118,6 +108,7 @@ function Sorting() {
     return b.points - a.points;
   });
 }
+//functie om partijen te sorteren op hoeveel punten ze krijgen
 function bestToWorst() {
   for (let best = 0; best < allpartys.length; best++) {
     var node = document.createElement("LI");
@@ -135,6 +126,7 @@ function bestToWorst() {
     //allpartys[best].name;
   }
 }
+//functie voor alleen grote partijen te laten zij
 function PartySize() {
   var checkBox = document.getElementById("myCheck");
   if (checkBox.checked == true) {
@@ -146,6 +138,7 @@ function PartySize() {
     }
   }
 }
+//functie voor alleen seculieren partijen te laten zij
 function PartySeculiere() {
   var checkBox = document.getElementById("PartySeculiere");
   if (checkBox.checked == true) {
@@ -158,7 +151,8 @@ function PartySeculiere() {
       var list = document.getElementById("myList");
       var listbegin = list.getElementsByTagName("LI");
       if (secular < false) {
-        delete allpartys[PartySeculiere];
+        //delete allpartys[PartySeculiere];
+        allpartys[PartySeculiere].splice(PartySeculiere, 1);
         listbegin[secular].classList.add("hidden");
         //listbegin[secular].style.visibility = "hidden";
       }
@@ -177,6 +171,7 @@ function PartySeculiere() {
     }
   }
 }
+//function voor als een vraag zwaarder moet mee tellen
 function questionWeight() {
   var checkBox = document.getElementById("questionW");
   if (checkBox.checked == true) {
