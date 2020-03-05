@@ -37,9 +37,12 @@ function nextQuestion(upOrDown) {
       qstNum--;
     } else {
       qstNum++;
+      document.getElementById("questionW").checked = false;
     }
     question();
   } else {
+    document.getElementById("questionW").style.visibility = "hidden";
+    document.getElementById("questionWeight").style.visibility = "hidden";
     checkAnswers();
   }
 }
@@ -47,7 +50,6 @@ function question() {
   head.innerHTML = answers.length + 1 + ". " + subjects[qstNum]["title"];
   statement.innerHTML = subjects[qstNum]["statement"];
 }
-//nextQuestion("up");
 
 // een manier op terug te gegaan naar een vraag
 function backQuestion() {
@@ -74,6 +76,10 @@ function checkAnswers() {
         answers[answerCounter] == subjects[answerCounter].parties[p].position
       ) {
         allpartys[answerCounter].points++;
+        var checkBox = document.getElementById("questionW");
+        if (checkBox.checked == true) {
+          allpartys[answerCounter].points++;
+        }
 
         console.log("true");
         console.log(allpartys);
@@ -172,11 +178,5 @@ function PartySeculiere() {
   }
 }
 //function voor als een vraag zwaarder moet mee tellen
-function questionWeight() {
-  var checkBox = document.getElementById("questionW");
-  if (checkBox.checked == true) {
-    allpartys[answerCounter].points++;
-  }
-}
 
 question();
