@@ -63,7 +63,7 @@ function backQuestion() {
     console.log("backQuestion" + answers.length);
   }
 }
-// een
+// een functie om te checken welke partij punten krijgen gebaseert op de you antwoorden die jij hebt ingevuld
 function checkAnswers() {
   console.log("check begin");
   for (var answerCounter = 0; answerCounter < answers.length; answerCounter++) {
@@ -129,7 +129,6 @@ function bestToWorst() {
     );
     node.appendChild(textnode);
     document.getElementById("myList").appendChild(node);
-    //allpartys[best].name;
   }
 }
 //functie voor alleen grote partijen te laten zij
@@ -177,6 +176,5 @@ function PartySeculiere() {
     }
   }
 }
-//function voor als een vraag zwaarder moet mee tellen
 
 question();
