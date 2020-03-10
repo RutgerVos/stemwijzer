@@ -81,3 +81,6 @@ html:not(.screenreader) .btn {
   border: 0;
   outline: 0;
 }
+[size="small"] {
+  color: red;
+}

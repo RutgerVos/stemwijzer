@@ -71,7 +71,6 @@ function checkAnswers() {
     for (var p = 0; p < partiesLength; p++) {
       subjects[answerCounter].parties;
       console.log(answers);
-
       if (
         answers[answerCounter] == subjects[answerCounter].parties[p].position
       ) {
@@ -89,8 +88,8 @@ function checkAnswers() {
     }
   }
   buttonreplace();
-  Sorting();
   bestToWorst();
+  Sorting();
 }
 
 function buttonreplace() {
@@ -114,10 +113,15 @@ function Sorting() {
     return b.points - a.points;
   });
 }
-//functie om partijen te sorteren op hoeveel punten ze krijgen
+//functie om partijen te generaren
 function bestToWorst() {
   for (let best = 0; best < allpartys.length; best++) {
     var node = document.createElement("LI");
+    if (allpartys[best].size < 15) {
+      node.setAttribute("size", "small");
+    } else {
+      node.setAttribute("size", "big");
+    }
     var textnode = document.createTextNode(
       allpartys[best].name +
         " " +
@@ -129,18 +133,19 @@ function bestToWorst() {
     );
     node.appendChild(textnode);
     document.getElementById("myList").appendChild(node);
+    //if (allpartys[best].size < 15) {
+    //  document.getElementsByTagName("LI").classList.add("small");
+    //} else {
+    //document.getElementsByTagName("LI").classList.add("big");
+    //}
   }
 }
 //functie voor alleen grote partijen te laten zij
 function PartySize() {
   var checkBox = document.getElementById("myCheck");
+  var smalls = document.querySelector('[size="small"]');
   if (checkBox.checked == true) {
-    for (let partySize = 0; partySize < allpartys.length; partySize++) {
-      var size = allpartys[partySize].size;
-      if (size < 15) {
-        delete allpartys[partySize];
-      }
-    }
+    console.log(smalls);
   }
 }
 //functie voor alleen seculieren partijen te laten zij
