@@ -117,10 +117,15 @@ function Sorting() {
 function bestToWorst() {
   for (let best = 0; best < allpartys.length; best++) {
     var node = document.createElement("LI");
-    if (allpartys[best].size < 15) {
-      node.setAttribute("size", "small");
+    if ((allpartys[best].secular = true)) {
+      node.classList.add("sectrue");
     } else {
-      node.setAttribute("size", "big");
+      node.classList.add("secfalse");
+    }
+    if (allpartys[best].size < 15) {
+      node.classList.add("small");
+    } else {
+      node.classList.add("big");
     }
     var textnode = document.createTextNode(
       allpartys[best].name +
@@ -133,51 +138,43 @@ function bestToWorst() {
     );
     node.appendChild(textnode);
     document.getElementById("myList").appendChild(node);
-    //if (allpartys[best].size < 15) {
-    //  document.getElementsByTagName("LI").classList.add("small");
-    //} else {
-    //document.getElementsByTagName("LI").classList.add("big");
-    //}
   }
 }
 //functie voor alleen grote partijen te laten zij
 function PartySize() {
   var checkBox = document.getElementById("myCheck");
-  var smalls = document.querySelector('[size="small"]');
+  var smalls = document.getElementsByClassName("small");
   if (checkBox.checked == true) {
+    console.log("smalls");
     console.log(smalls);
+    for (let sizing = 0; sizing < smalls.length; sizing++) {
+      console.log(smalls[sizing]);
+      smalls[sizing].classList.add("hidden");
+    }
+  }
+  if (checkBox.checked == false) {
+    console.log(smalls);
+    for (let sizing = 0; sizing < smalls.length; sizing++) {
+      smalls[sizing].classList.remove("hidden");
+    }
   }
 }
 //functie voor alleen seculieren partijen te laten zij
 function PartySeculiere() {
-  var checkBox = document.getElementById("PartySeculiere");
+  var checkBox = document.getElementById("myCheck");
+  var secular = document.getElementsByClassName("secfalse");
   if (checkBox.checked == true) {
-    for (
-      let PartySeculiere = 0;
-      PartySeculiere < allpartys.length;
-      PartySeculiere++
-    ) {
-      var secular = allpartys[PartySeculiere].secular;
-      var list = document.getElementById("myList");
-      var listbegin = list.getElementsByTagName("LI");
-      if (secular < false) {
-        //delete allpartys[PartySeculiere];
-        allpartys[PartySeculiere].splice(PartySeculiere, 1);
-        listbegin[secular].classList.add("hidden");
-        //listbegin[secular].style.visibility = "hidden";
-      }
+    console.log("secular");
+    console.log(secular);
+    for (let seculars = 0; seculars < secular.length; seculars++) {
+      console.log(secular[seculars]);
+      secular[seculars].classList.add("hidden");
     }
   }
   if (checkBox.checked == false) {
-    for (
-      let PartySeculiere = 0;
-      PartySeculiere < allpartys.length;
-      PartySeculiere++
-    ) {
-      if (secular < true) {
-        delete allpartys[PartySeculiere];
-        //listbegin[secular].classList.remove("hidden");
-      }
+    console.log(secular);
+    for (let seculars = 0; seculars < secular.length; seculars++) {
+      secular[seculars].classList.remove("hidden");
     }
   }
 }
