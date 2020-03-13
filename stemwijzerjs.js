@@ -117,7 +117,7 @@ function Sorting() {
 function bestToWorst() {
   for (let best = 0; best < allpartys.length; best++) {
     var node = document.createElement("LI");
-    if ((allpartys[best].secular = true)) {
+    if (allpartys[best].secular == true) {
       node.classList.add("sectrue");
     } else {
       node.classList.add("secfalse");
@@ -161,20 +161,21 @@ function PartySize() {
 }
 //functie voor alleen seculieren partijen te laten zij
 function PartySeculiere() {
-  var checkBox = document.getElementById("myCheck");
-  var secular = document.getElementsByClassName("secfalse");
+  var checkBox = document.getElementById("MyCheck1");
+  console.log(checkBox.checked);
+  var secularing = document.getElementsByClassName("secfalse");
   if (checkBox.checked == true) {
     console.log("secular");
-    console.log(secular);
-    for (let seculars = 0; seculars < secular.length; seculars++) {
-      console.log(secular[seculars]);
-      secular[seculars].classList.add("hidden");
+    console.log(secularing);
+    for (let seculars = 0; seculars < secularing.length; seculars++) {
+      console.log(secularing[seculars]);
+      secularing[seculars].classList.add("hidden");
     }
   }
   if (checkBox.checked == false) {
-    console.log(secular);
-    for (let seculars = 0; seculars < secular.length; seculars++) {
-      secular[seculars].classList.remove("hidden");
+    console.log(secularing);
+    for (let seculars = 0; seculars < secularing.length; seculars++) {
+      secularing[seculars].classList.remove("hidden");
     }
   }
 }
