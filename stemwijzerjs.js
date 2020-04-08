@@ -7,7 +7,7 @@ var head = document.getElementById("title");
 var statement = document.getElementById("statement");
 var sub = subjects[0]["title"];
 var partie = subjects[0]["parties"][0]["name"];
-//var position = subjects[0]["parties"][0]["position"];
+
 var qstNum = 0;
 var answers = [];
 var allpartys = [];
@@ -19,7 +19,7 @@ for (var i = 0; i < parties.length; i++) {
     name: parties[i].name,
     secular: parties[i].secular,
     size: parties[i].size,
-    points: 0
+    points: 0,
   };
 }
 
@@ -109,7 +109,7 @@ function restartTest() {
   window.location.href = "start.html";
 }
 function Sorting() {
-  allpartys.sort(function(a, b) {
+  allpartys.sort(function (a, b) {
     return b.points - a.points;
   });
 }
