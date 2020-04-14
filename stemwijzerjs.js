@@ -24,6 +24,14 @@ for (var i = 0; i < parties.length; i++) {
 }
 
 console.log(allpartys);
+var checkSize = document.getElementById("MyCheck");
+var checkSec = document.getElementById("MyCheck1");
+var checkSEC = document.getElementById("secCheck");
+var checkSIZE = document.getElementById("sizeCheck");
+checkSec.style.visibility = "hidden";
+checkSize.style.visibility = "hidden";
+checkSIZE.style.visibility = "hidden";
+checkSEC.style.visibility = "hidden";
 //questionAnswer stores the answer entered and starts the next question
 function questionAnswers(answer) {
   answers[qstNum] = answer;
@@ -47,8 +55,24 @@ function nextQuestion(upOrDown) {
   }
 }
 function question() {
-  head.innerHTML = answers.length + 1 + ". " + subjects[qstNum]["title"];
+  head.innerHTML = qstNum + 1 + ". " + subjects[qstNum]["title"];
   statement.innerHTML = subjects[qstNum]["statement"];
+  var answerbutton = document.getElementsByClassName("answerbutton");
+  answerbutton.classList.remove("chosen");
+  if (answers[qstNum] == "contra") {
+    answerbutton.classList.add("chosen");
+  }
+  if (answers[qstNum] == "pro") {
+    answerbutton.classList.add("chosen");
+  }
+  if (answers[qstNum] == "none") {
+    answerbutton.classList.add("chosen");
+  }
+  // verwijder class chosen voor alle buttons
+  // als het antwoord behorende bij qstNum gelijk is aan 'contra' dan voeg class chosen toe aan button voor contra
+  // als het antwoord behorende bij qstNum gelijk is aan 'pro' dan voeg class chosen toe aan button voor pro
+  // als het antwoord behorende bij qstNum gelijk is aan 'none' dan voeg class chosen toe aan button voor none
+  // voeg css toe voor de class chosen
 }
 
 // een manier op terug te gegaan naar een vraag
@@ -57,7 +81,7 @@ function backQuestion() {
     return;
   } else {
     qstNum--;
-    answers.length--;
+    //answers.length--;
     //console.log(answers.length);
     question();
     console.log("backQuestion" + answers.length);
@@ -93,6 +117,10 @@ function checkAnswers() {
 }
 
 function buttonreplace() {
+  checkSec.style.visibility = "visible";
+  checkSize.style.visibility = "visible";
+  checkSIZE.style.visibility = "visible";
+  checkSEC.style.visibility = "visible";
   head.innerHTML = "politieken partien die het beste passen bij you";
   statement.innerHTML =
     "Begint met het beste partie die bij je past en eindigt met slechtste partie die bij you past";
@@ -142,7 +170,7 @@ function bestToWorst() {
 }
 //functie voor alleen grote partijen te laten zij
 function PartySize() {
-  var checkBox = document.getElementById("myCheck");
+  var checkBox = document.getElementById("sizeCheck");
   var smalls = document.getElementsByClassName("small");
   if (checkBox.checked == true) {
     console.log("smalls");
