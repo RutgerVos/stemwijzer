@@ -75,12 +75,6 @@ function question() {
   if (answers[qstNum] == "none") {
     noneButton.classList.add("chosen");
   }
-  if (weightquestion[qstNum] == true) {
-    document.getElementById("questionW").checked = true;
-  }
-  if (weightquestion[qstNum] == false) {
-    document.getElementById("questionW").checked = false;
-  }
   document.getElementById("questionW").checked = weightquestion[qstNum];
   // verwijder class chosen voor alle buttons
   // als het antwoord behorende bij qstNum gelijk is aan 'contra' dan voeg class chosen toe aan button voor contra
