@@ -35,7 +35,7 @@ checkSIZE.style.visibility = "hidden";
 checkSEC.style.visibility = "hidden";
 //questionAnswer stores the answer entered and starts the next question
 function questionAnswers(answer) {
-  weightquestion[qstNum] = document.getElementById("questionWeight").checked;
+  weightquestion[qstNum] = document.getElementById("questionW").checked;
   answers[qstNum] = answer;
   console.log(answers);
   nextQuestion("up");
@@ -59,6 +59,7 @@ function nextQuestion(upOrDown) {
 function question() {
   head.innerHTML = qstNum + 1 + ". " + subjects[qstNum]["title"];
   statement.innerHTML = subjects[qstNum]["statement"];
+  console.log(weightquestion);
   var contraButton = document.getElementById("contra");
   var noneButton = document.getElementById("none");
   var proButton = document.getElementById("pro");
@@ -80,7 +81,7 @@ function question() {
   if (weightquestion[qstNum] == false) {
     document.getElementById("questionW").checked = false;
   }
-  //document.getElementById("questionW").checked = weightquestion[qstNum];
+  document.getElementById("questionW").checked = weightquestion[qstNum];
   // verwijder class chosen voor alle buttons
   // als het antwoord behorende bij qstNum gelijk is aan 'contra' dan voeg class chosen toe aan button voor contra
   // als het antwoord behorende bij qstNum gelijk is aan 'pro' dan voeg class chosen toe aan button voor pro
