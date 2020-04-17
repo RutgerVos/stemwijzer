@@ -101,15 +101,31 @@ function checkAnswers() {
   for (var answerCounter = 0; answerCounter < answers.length; answerCounter++) {
     var partiesLength = subjects[answerCounter].parties.length;
     for (var p = 0; p < partiesLength; p++) {
-      subjects[answerCounter].parties;
+      //subjects[answerCounter].parties;
       console.log(answers);
       if (
         answers[answerCounter] == subjects[answerCounter].parties[p].position
       ) {
-        allpartys[answerCounter].points++;
+        // zoek in alpartys de partij die overeenkomet met subjects[answerCounter].parties[p].position --> foundParty
+        let foundParty = allpartys.find((party) => {
+          return party.name == subjects[answerCounter].parties[p].name;
+        });
+        /*
+        let resultParty = null;
+        for (index = 0; index < allpartys.length; index++){
+          let party = allpartys[index];
+          match = party.name == subjects[answerCounter].parties[p].name;
+          if (match == true) {
+            resultParty = party; break;
+          }
+        }
+*/
+
+        foundParty.points++;
+        // allpartys[answerCounter].points++;
         var checkBox = document.getElementById("questionW");
         if (checkBox.checked == true) {
-          allpartys[answerCounter].points++;
+          foundParty.points++;
         }
 
         console.log("true");
@@ -120,8 +136,8 @@ function checkAnswers() {
     }
   }
   buttonreplace();
-  bestToWorst();
   Sorting();
+  bestToWorst();
 }
 
 function buttonreplace() {
